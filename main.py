@@ -6,15 +6,19 @@ from utils import replace_mongo_id
 from typing import Annotated
 import cloudinary
 import cloudinary.uploader
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 # import cloudinary.api
 
 # Configure cloudinary
 cloudinary.config(
-    cloud_name = "dqtc5pytw", 
-    api_key = "453284225878789", 
-    api_secret = "Tyrx1owI7UzZx-GnY8UOVN8JIQQ"
+    cloud_name = os.getenv("CLOUD_NAME"),
+    api_key = os.getenv("API_KEY"),
+    api_secret = os.getenv("API_SECRET"),
 )
-
 
 class EventModel(BaseModel):
     title: str
