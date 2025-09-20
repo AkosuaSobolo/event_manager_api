@@ -49,7 +49,7 @@ GET /
 Response:
 {"message": "You are on the home page"}
 ________________________________________
-🗝️ User Authentication
+User Authentication
 Register User
 POST /users/register
 Request (form-data):
