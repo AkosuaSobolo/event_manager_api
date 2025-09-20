@@ -28,18 +28,17 @@ This project is a **FastAPI + MongoDB** application for managing events with use
 ## How to Run
 
 1. Clone/download this project
-2. Install dependencies: `pip install -r requirements.txt`
+   
+2. Install dependencies: pip install -r requirements.txt
+   
 3. Set up `.env` file in the project root:
-
-```
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 MONGO_URI=mongodb://localhost:27017
 JWT_SECRET_KEY=your_secret_key
-```
 
-4. Start the server: `fastapi dev`
+4. Start the server: fastapi dev
    
 5. Open your browser or Postman at: http://127.0.0.1:8000/docs
 
@@ -49,69 +48,62 @@ Note: All create and update endpoints use **form-data** (not raw JSON), since th
 
 ### Home
 
-`GET /`
+GET /
 Response:
 
-```json
+json
 {"message": "You are on the home page"}
-```
-
----
 
 ## User Authentication
 
 ### Register User
 
-`POST /users/register`
-**Request (form-data):**
+POST /users/register
+Request (form-data):
 
-```json
+json
 {
   "username": "John Doe",
   "email": "john@example.com",
   "password": "StrongPass123"
 }
-```
 
 Response:
 
-```json
+json
 {"message": "User registered successfully!"}
-```
 
 ### User Login
 
-`POST /users/login`
+POST /users/login
 Request (form-data):
 
-```json
+json
 {
   "email": "john@example.com",
   "password": "StrongPass123"
 }
-```
 
 Response:
 
-```json
+json
 {
   "message": "Login successful!",
   "access_token": "your_jwt_token"
 }
-```
 
 ## Event Management
 
 ### Get All Events
 
-`GET /events?title=&description=&limit=10&skip=0`
+GET /events?title=&description=&limit=10&skip=0
 
 Example request:
-`GET /events?title=Tech&limit=2`
+GET /events?title=Tech&limit=2
 
 Example response:
 
-```json
+json
 [
   {
     "title": "Tech Conference",
@@ -126,11 +118,10 @@ Example response:
     "description": "Live music and performances"
   }
 ]
-```
 
 ### Create Event
 
-`POST /events`
+POST /events
 Requires Authentication
 
 Request (form-data):
@@ -141,51 +132,47 @@ Request (form-data):
 
 Response:
 
-```json
+json
 {"message": "Event added successfully"}
-```
 
 ### Get Event by ID
 
-`GET /events/{event_id}`
+GET /events/{event_id}
 
 Response:
 
-```json
+json
 {
   "title": "Tech Conference",
   "date": "2025-09-22",
   "location": "Accra",
   "description": "Annual tech conference"
 }
-```
 
 ### Update Event
 
-`PUT /events/{event_id}`
+PUT /events/{event_id}
 
 Request (form-data):
 
-```
 title=Updated Tech Summit
 location=Kumasi
-```
 
 Response:
 
-```json
+json
 {"message": "Event replaced successfully"}
 
 ### Delete Event
 
-`DELETE /events/{event_id}`
+DELETE /events/{event_id}
 Requires Authentication
 
-**Response:**
+Response:
 
-```json
+json
 {"message": "Event deleted successfully"}
-```
+
 
 ## Error Handling
 
@@ -201,7 +188,7 @@ Requires Authentication
 
 * Added flyer upload to Cloudinary
 * Implemented JWT authentication for secure access
-* Added filtering, skip, and limit (pagination) for `/events`
+* Added filtering, skip, and limit (pagination) for /events
 
 
 
