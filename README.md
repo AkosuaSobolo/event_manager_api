@@ -48,6 +48,7 @@ Note: All create and update endpoints use **form-data** (not raw JSON), since th
 
 ### Home
 
+
 GET /
 Response:
 
@@ -55,6 +56,7 @@ json
 {"message": "You are on the home page"}
 
 ## User Authentication
+
 
 ### Register User
 
@@ -72,6 +74,7 @@ Response:
 
 json
 {"message": "User registered successfully!"}
+
 
 ### User Login
 
@@ -93,6 +96,7 @@ json
 }
 
 ## Event Management
+
 
 ### Get All Events
 
@@ -119,6 +123,7 @@ json
   }
 ]
 
+
 ### Create Event
 
 POST /events
@@ -135,6 +140,7 @@ Response:
 json
 {"message": "Event added successfully"}
 
+
 ### Get Event by ID
 
 GET /events/{event_id}
@@ -149,6 +155,7 @@ json
   "description": "Annual tech conference"
 }
 
+
 ### Update Event
 
 PUT /events/{event_id}
@@ -162,6 +169,7 @@ Response:
 
 json
 {"message": "Event replaced successfully"}
+
 
 ### Delete Event
 
