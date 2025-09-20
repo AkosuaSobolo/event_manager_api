@@ -39,18 +39,18 @@ e.	JWT_SECRET_KEY=your_secret_key
    
 5.	Open your browser or Postman at:
 http://127.0.0.1:8000/docs
-________________________________________
 
-Endpoints
+##Endpoints
 Note: All create and update endpoints use form-data (not raw JSON), since they are implemented with Annotated [str, Form(...)]
 
-Home
+###Home
 GET /
 Response:
 {"message": "You are on the home page"}
-________________________________________
-User Authentication
-Register User
+
+##User Authentication
+
+###Register User
 POST /users/register
 Request (form-data):
 {
@@ -60,8 +60,8 @@ Request (form-data):
 }
 Response:
 {"message": "User registered successfully!"}
-________________________________________
-User Login
+
+###User Login
 POST /users/login
 Request (form-data):
 {
@@ -73,9 +73,10 @@ Response:
   "message": "Login successful!",
   "access_token": "your_jwt_token"
 }
-________________________________________
-Event Management
-Get All Events
+
+##Event Management
+
+###Get All Events
 GET /events?title=&description=&limit=10&skip=0
 Example request:
 GET /events?title=Tech&limit=2
@@ -94,8 +95,8 @@ Example response:
     "description": "Live music and performances"
   }
 ]
-________________________________________
-Create Event
+
+###Create Event
 POST /events
 Requires Authentication
 Request (form-data):
@@ -104,8 +105,8 @@ Request (form-data):
 •	flyer: file (image)
 Response:
 {"message": "Event added successfully"}
-________________________________________
-Get Event by ID
+
+###Get Event by ID
 GET /events/{event_id}
 Response:
 {
@@ -114,34 +115,34 @@ Response:
   "location": "Accra",
   "description": "Annual tech conference"
 }
-________________________________________
-Update Event
+
+###Update Event
 PUT /events/{event_id}
 Request (form-data):
 title= Updated Tech Summit  
 location= Kumasi  
 Response:
 {"message": "Event replaced successfully"}
-________________________________________
-Delete Event
+
+###Delete Event
 DELETE /events/{event_id}
 Requires Authentication
 Response:
 {"message": "Event deleted successfully"}
-________________________________________
-Error Handling
+
+##Error Handling
 •	Invalid MongoDB ID: returns 422 Unprocessable Entity
 •	Event not found: returns 404 Not Found
 •	Duplicate event per user: 409 Conflict
 •	Unauthorized / Invalid token: 401 Unauthorized
 •	If database error: returns 500 Internal Server Error
-________________________________________
-Extra Challenge
+
+##Extra Challenge
 •	Added flyer upload to Cloudinary
 •	Implemented JWT authentication for secure access
 •	Added filtering, skip, and limit (pagination) for /events
-________________________________________
-Future Improvements
+
+##Future Improvements
 1.	User Profiles: Link events to user dashboards
 2.	Event Categories & Tags: Filter events by categories
 3.	RSVP System: Enable attendees to register for events
